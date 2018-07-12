@@ -64,9 +64,9 @@
 			<artifactId>kotlin-reflect</artifactId>
 		</dependency>
 		<dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 
 
 
@@ -113,11 +113,39 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test-compile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>test-compile</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>3.5.40</version>
+				<configuration>
+					<resources>
+						<env>
+							<MONGODB_HOST>172.17.0.3</MONGODB_HOST>
+							<MONGODB_PORT>27017</MONGODB_PORT>
+							<MONGODB_DATABASE>ilcbpoc</MONGODB_DATABASE>
+							<MONGODB_USER>user</MONGODB_USER>
+							<MONGODB_PASSWORD>user</MONGODB_PASSWORD>
+						</env>
+
+					</resources>
+				</configuration>
 				<executions>
 					<execution>
 						<id>fmp</id>
